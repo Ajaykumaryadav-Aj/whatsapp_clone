@@ -8,7 +8,7 @@ class ChatBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: Colors.blueGrey,
+      backgroundColor: Colors.grey,
       appBar: AppBar(
         backgroundColor: Colors.teal,
         actions: const [
@@ -60,38 +60,55 @@ class ChatBox extends StatelessWidget {
           ],
         ),
       ),
-      body: SingleChildScrollView(
-        child: Center(
-          child: Column(
-            children: [
-              const Text('Chat'),
-              Padding(
-                padding: const EdgeInsets.only(top: 700),
-                child: TextField(
-                  keyboardType: TextInputType.multiline,
-                  decoration: const InputDecoration(
-                    icon: Icon(Icons.tag_faces),
-                    suffix: Row(
-                      children: [
-                        Icon(Icons.attach_file_rounded),
-                        Icon(Icons.currency_rupee_sharp),
-                        Icon(Icons.camera_alt)
-                      ],
-                    ),
-                    border: OutlineInputBorder(
+      body: Column(
+        children: [
+          // const Text(''),
+          Expanded(
+            child: Align(
+              alignment: Alignment.bottomLeft,
+              child: TextField(
+                keyboardType: TextInputType.multiline,
+                decoration: const InputDecoration(
+                  fillColor: Colors.white,
+                  filled: true,
+                  prefixIcon: Icon(Icons.tag_faces, size: 34),
+                  //
+                  suffixIcon: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Icon(Icons.link),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Icon(Icons.currency_rupee),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Icon(Icons.photo_camera),
+                      )
+                    ],
+                  ),
+
+                  hintText: 'Message',
+                  hintStyle: TextStyle(
+                    fontSize: 21,
+                  ),
+                  border: OutlineInputBorder(
                       borderRadius: BorderRadius.all(
                         Radius.circular(50),
                       ),
-                    ),
-                  ),
-                  onTap: () {
-                    log('message');
-                  },
+                      borderSide: BorderSide.none),
                 ),
+                onTap: () {
+                  log('message');
+                },
               ),
-            ],
+            ),
           ),
-        ),
+          // Icon(Icons.accessibility_sharp)
+        ],
       ),
     );
   }

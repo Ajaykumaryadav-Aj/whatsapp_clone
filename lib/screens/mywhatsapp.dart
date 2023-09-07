@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:whatsapp/screens/status_edit_box.dart';
 
 import 'chat_box.dart';
 import 'contact_box.dart';
@@ -224,7 +225,7 @@ class CallsTab extends StatelessWidget {
                       color: Colors.teal,
                     ),
                   );
-                })
+                }),
           ],
         ),
       ),
@@ -285,7 +286,15 @@ class StatusTab extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.fromLTRB(0, 0, 0, 20),
             child: FloatingActionButton.small(
-              onPressed: () {},
+              heroTag: true,
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const StatusEditBox(),
+                  ),
+                );
+              },
               //backgroundColor: Colors.teal,
               child: const Icon(
                 Icons.edit,
@@ -431,45 +440,45 @@ class ChatTab extends StatelessWidget {
                   showDialog(
                     context: context,
                     builder: (context) => Dialog(
-                        child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Image.asset(
-                          chatimage[index]['image'],
-                          height: MediaQuery.of(context).size.width - 30,
-                          width: MediaQuery.of(context).size.width - 30,
-                          fit: BoxFit.cover,
-                        ),
-                        const Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Icon(
-                              Icons.message,
-                              color: Colors.teal,
-                            ),
-                            Icon(
-                              Icons.call,
-                              color: Colors.teal,
-                            ),
-                            Icon(
-                              Icons.videocam,
-                              color: Colors.teal,
-                            ),
-                            Icon(
-                              Icons.error_outline,
-                              color: Colors.teal,
-                            )
-                          ],
-                        )
-                      ],
-                    )),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Image.asset(
+                            chatimage[index]['image'],
+                            height: MediaQuery.of(context).size.width - 30,
+                            width: MediaQuery.of(context).size.width - 30,
+                            fit: BoxFit.cover,
+                          ),
+                          const Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Icon(
+                                Icons.message,
+                                color: Colors.teal,
+                              ),
+                              Icon(
+                                Icons.call,
+                                color: Colors.teal,
+                              ),
+                              Icon(
+                                Icons.videocam,
+                                color: Colors.teal,
+                              ),
+                              Icon(
+                                Icons.error_outline,
+                                color: Colors.teal,
+                              )
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
                   );
                 },
                 child: CircleAvatar(
                   backgroundImage: AssetImage(
                     chatimage[index]['image'],
                   ),
-                  // radius: 30,
 
                   // fit: BoxFit.cover,
                 ),

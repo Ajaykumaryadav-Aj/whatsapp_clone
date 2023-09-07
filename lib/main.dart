@@ -1,7 +1,3 @@
-// flipkart clone*****************************************************
-
-// import 'dart:developer';
-// import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:whatsapp/screens/mywhatsapp.dart';
 
@@ -14,21 +10,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
+      theme: ThemeData(useMaterial3: true),
       debugShowCheckedModeBanner: false,
       title: "whatsapp",
-      // theme: ThemeData(
-      //   appBarTheme: const AppBarTheme(backgroundColor: Colors.blue),
-      //   useMaterial3: true,
-      //   colorScheme: ColorScheme.fromSeed(
-      //     seedColor: const Color.fromRGBO(36, 97, 220, 1),
-      //   ),
-      // ),
-      // home: const MyHomeScreen(),
-      home: MyWhatsapp(),
 
-      // home: const MyUiDesign(),
-      // home: const SliverScreen(),
+      home: const MyWhatsapp(),
+
+      
     );
   }
 }
