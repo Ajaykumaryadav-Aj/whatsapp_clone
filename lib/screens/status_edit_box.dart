@@ -6,9 +6,9 @@ class StatusEditBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.amber,
+      backgroundColor: Colors.blue,
       appBar: AppBar(
-        backgroundColor: Colors.amber,
+        backgroundColor: Colors.blue,
         actions: const [
           Padding(
             padding: EdgeInsets.all(8.0),
@@ -38,13 +38,24 @@ class StatusEditBox extends StatelessWidget {
       ),
       body: const Center(
         child: TextField(
+          keyboardType: TextInputType.multiline,
+          cursorColor: Colors.white,
+          cursorHeight: 35,
           decoration: InputDecoration(
               hintText: 'Type a Status',
-              hintStyle: TextStyle(
-                fontSize: 25,
-              ),
+              hintStyle: TextStyle(fontSize: 30, color: Colors.grey),
               border: InputBorder.none),
           textAlign: TextAlign.center,
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        backgroundColor: Colors.teal,
+        shape: const CircleBorder(),
+        child: const Icon(
+          Icons.keyboard_voice,
+          color: Colors.white,
+          size: 30,
         ),
       ),
     );

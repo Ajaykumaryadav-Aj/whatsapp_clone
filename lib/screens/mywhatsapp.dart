@@ -429,7 +429,7 @@ class ChatTab extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const ChatBox(),
+                  builder: (context) => ChatBox(index: index,),
                 ),
               );
             },

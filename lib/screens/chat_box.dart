@@ -1,10 +1,16 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:whatsapp/screens/mywhatsapp.dart';
 
-class ChatBox extends StatelessWidget {
-  const ChatBox({super.key});
+class ChatBox extends StatefulWidget {
+  const ChatBox({super.key, required this.index});
+  final int index;
+  @override
+  State<ChatBox> createState() => _ChatBoxState();
+}
 
+class _ChatBoxState extends State<ChatBox> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,13 +40,13 @@ class ChatBox extends StatelessWidget {
             ),
           ),
         ],
-        title: const Row(
+        title: Row(
           children: [
             Padding(
-              padding: EdgeInsets.only(right: 18),
+              padding: const EdgeInsets.only(right: 18),
               child: CircleAvatar(
                 radius: 23,
-                backgroundImage: AssetImage('assets/images/Tiranga.jpg'),
+                backgroundImage: AssetImage(chatimage[widget.index]['image']),
               ),
             ),
             // SizedBox(width: 20),
@@ -48,15 +54,44 @@ class ChatBox extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Ajay',
-                  style: TextStyle(color: Colors.white),
+                  chatlist[widget.index]['name'],
+                  style: const TextStyle(color: Colors.white),
                 ),
-                Text(
+                const Text(
                   '3:00 pm',
                   style: TextStyle(fontSize: 15, color: Colors.white),
                 )
               ],
             )
+          ],
+        ),
+      ),
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.only(left: 41),
+        child: Stack(
+          clipBehavior: Clip.none,
+          children: [
+            FloatingActionButton(
+              heroTag: true,
+              onPressed: () {},
+              backgroundColor: Colors.teal,
+              shape: const CircleBorder(),
+              child: const Icon(
+                Icons.send,
+                color: Colors.white,
+                size: 30,
+              ),
+            ),
+            FloatingActionButton(
+              onPressed: () {},
+              backgroundColor: Colors.teal,
+              shape: const CircleBorder(),
+              child: const Icon(
+                Icons.keyboard_voice,
+                color: Colors.white,
+                size: 30,
+              ),
+            ),
           ],
         ),
       ),
@@ -67,7 +102,10 @@ class ChatBox extends StatelessWidget {
             child: Align(
               alignment: Alignment.bottomLeft,
               child: TextField(
+                style: const TextStyle(fontSize: 20),
                 keyboardType: TextInputType.multiline,
+                cursorColor: Colors.teal,
+                cursorWidth: 3,
                 decoration: const InputDecoration(
                   fillColor: Colors.white,
                   filled: true,
@@ -78,7 +116,7 @@ class ChatBox extends StatelessWidget {
                     children: [
                       Padding(
                         padding: EdgeInsets.all(8.0),
-                        child: Icon(Icons.link),
+                        child: Icon(Icons.link, size: 28),
                       ),
                       Padding(
                         padding: EdgeInsets.all(8.0),
@@ -87,10 +125,12 @@ class ChatBox extends StatelessWidget {
                       Padding(
                         padding: EdgeInsets.all(8.0),
                         child: Icon(Icons.photo_camera),
-                      )
+                      ),
                     ],
                   ),
-
+                  // suffix: Icon(
+                  //   Icons.add_circle_outline_rounded,
+                  // ),
                   hintText: 'Message',
                   hintStyle: TextStyle(
                     fontSize: 21,
@@ -100,6 +140,7 @@ class ChatBox extends StatelessWidget {
                         Radius.circular(50),
                       ),
                       borderSide: BorderSide.none),
+                  constraints: BoxConstraints(maxHeight: 350, maxWidth: 340),
                 ),
                 onTap: () {
                   log('message');
@@ -107,7 +148,6 @@ class ChatBox extends StatelessWidget {
               ),
             ),
           ),
-          // Icon(Icons.accessibility_sharp)
         ],
       ),
     );
