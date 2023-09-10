@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:whatsapp/screens/add_call.dart';
+import 'package:whatsapp/screens/create_status.dart';
 import 'package:whatsapp/screens/status_edit_box.dart';
 
 import 'chat_box.dart';
@@ -68,8 +70,9 @@ class MyWhatsapp extends StatelessWidget {
           backgroundColor: Colors.teal,
           bottom: const TabBar(
             indicatorColor: Colors.white,
-            indicatorWeight: 2.0,
+            indicatorWeight: 3.0,
             indicatorSize: TabBarIndicatorSize.label,
+            labelColor: Colors.white,
             unselectedLabelColor: Colors.white,
             tabs: [
               Tab(
@@ -167,7 +170,14 @@ class CallsTab extends StatelessWidget {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.teal,
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const AddCalls(),
+            ),
+          );
+        },
         child: const Icon(
           Icons.add_ic_call,
           color: Colors.white,
@@ -314,26 +324,35 @@ class StatusTab extends StatelessWidget {
       ),
       body: Column(
         children: [
-          const ListTile(
-            leading: CircleAvatar(
-              radius: 25.0,
-              //backgroundImage: AssetImage('assets/images/aj2.jpg'),
-              child: Padding(
-                padding: EdgeInsets.all(23.0),
-                child: Icon(
-                  Icons.add_circle,
-                  color: Colors.teal,
-                  size: 30.0,
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const CreateStatus(),
+                  ));
+            },
+            child: const ListTile(
+              leading: CircleAvatar(
+                radius: 25.0,
+                //backgroundImage: AssetImage('assets/images/aj2.jpg'),
+                child: Padding(
+                  padding: EdgeInsets.all(23.0),
+                  child: Icon(
+                    Icons.add_circle,
+                    color: Colors.teal,
+                    size: 30.0,
+                  ),
                 ),
               ),
-            ),
-            title: Text(
-              'My status',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 21),
-            ),
-            subtitle: Text(
-              'Tap to add status update',
-              style: TextStyle(fontSize: 17),
+              title: Text(
+                'My status',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 21),
+              ),
+              subtitle: Text(
+                'Tap to add status update',
+                style: TextStyle(fontSize: 17),
+              ),
             ),
           ),
           const Padding(
@@ -429,7 +448,9 @@ class ChatTab extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => ChatBox(index: index,),
+                  builder: (context) => ChatBox(
+                    index: index,
+                  ),
                 ),
               );
             },

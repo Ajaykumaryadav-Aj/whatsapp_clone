@@ -11,10 +11,22 @@ class ChatBox extends StatefulWidget {
 }
 
 class _ChatBoxState extends State<ChatBox> {
+  final textcontroller = TextEditingController();
+  List<Map<String, dynamic>> chats = [
+    {'name': 'rahul'},
+    {'name': 'rahul'},
+    {'name': 'rahul'}
+  ];
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey,
+      // backgroundColor: Colors.grey,
       appBar: AppBar(
         backgroundColor: Colors.teal,
         actions: const [
@@ -97,11 +109,27 @@ class _ChatBoxState extends State<ChatBox> {
       ),
       body: Column(
         children: [
+          Expanded(
+            child: ListView.builder(
+              itemCount: chats.length,
+              itemBuilder: (BuildContext context, index) {
+                return ListTile(leading: Text(chats[index]['name']));
+              },
+            ),
+          ),
+
           // const Text(''),
           Expanded(
             child: Align(
               alignment: Alignment.bottomLeft,
               child: TextField(
+                controller: textcontroller,
+                onSubmitted: (value) {
+                  chats.add({
+                    'name': value,
+                  });
+                  setState(() {});
+                },
                 style: const TextStyle(fontSize: 20),
                 keyboardType: TextInputType.multiline,
                 cursorColor: Colors.teal,
@@ -120,7 +148,9 @@ class _ChatBoxState extends State<ChatBox> {
                       ),
                       Padding(
                         padding: EdgeInsets.all(8.0),
-                        child: Icon(Icons.currency_rupee),
+                        child: Icon(
+                          Icons.currency_rupee,
+                        ),
                       ),
                       Padding(
                         padding: EdgeInsets.all(8.0),
@@ -137,7 +167,7 @@ class _ChatBoxState extends State<ChatBox> {
                   ),
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.all(
-                        Radius.circular(50),
+                        Radius.circular(40),
                       ),
                       borderSide: BorderSide.none),
                   constraints: BoxConstraints(maxHeight: 350, maxWidth: 340),
