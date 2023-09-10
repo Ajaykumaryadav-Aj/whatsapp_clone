@@ -93,7 +93,8 @@ class AddCalls extends StatelessWidget {
                 ),
                 title: Text(
                   addcalllist[index]['new'],
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                  style: const TextStyle(
+                      fontWeight: FontWeight.bold, fontSize: 18),
                 ),
                 trailing: Icon(addcalllist[index]['sideicon']),
               );
@@ -107,7 +108,10 @@ class AddCalls extends StatelessWidget {
                 leading: CircleAvatar(
                   backgroundImage: AssetImage(addprsnlist[index]['image']),
                 ),
-                title: Text(addprsnlist[index]['name']),
+                title: Text(
+                  addprsnlist[index]['name'],
+                  style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                ),
                 subtitle: Text(addprsnlist[index]['message']),
                 trailing: const Wrap(spacing: 25, children: [
                   Icon(
@@ -133,7 +137,10 @@ class AddCalls extends StatelessWidget {
                     color: Colors.white,
                   ),
                 ),
-                title: Text(addinvite[index]['name']),
+                title: Text(
+                  addinvite[index]['name'],
+                  style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                ),
               );
             },
           )

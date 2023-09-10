@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp/screens/add_call.dart';
 import 'package:whatsapp/screens/create_status.dart';
-import 'package:whatsapp/screens/pop_up_menu.dart';
 import 'package:whatsapp/screens/settings.dart';
 import 'package:whatsapp/screens/status_edit_box.dart';
 
@@ -18,6 +17,10 @@ class MyWhatsapp extends StatelessWidget {
       length: 4,
       child: Scaffold(
         appBar: AppBar(
+          title: const Text(
+            'WhatsApp',
+            style: TextStyle(color: Colors.white),
+          ),
           actions: [
             const Icon(
               Icons.camera_alt_outlined,
@@ -52,6 +55,7 @@ class MyWhatsapp extends StatelessWidget {
                   child: Text('Payments'),
                 ),
                 PopupMenuItem(
+                
                   onTap: () {
                     Navigator.push(
                       context,
@@ -65,10 +69,6 @@ class MyWhatsapp extends StatelessWidget {
               ],
             )
           ],
-          title: const Text(
-            'WhatsApp',
-            style: TextStyle(color: Colors.white),
-          ),
           backgroundColor: Colors.teal,
           bottom: const TabBar(
             indicatorColor: Colors.white,
@@ -463,6 +463,7 @@ class ChatTab extends StatelessWidget {
                   showDialog(
                     context: context,
                     builder: (context) => Dialog(
+                      shape: const BeveledRectangleBorder(),
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp/screens/mywhatsapp.dart';
+import 'package:whatsapp/screens/new_group_page.dart';
 
 List<Map<String, dynamic>> contactlist = [
   {'icon': Icons.group, 'New': 'New group'},
@@ -61,30 +62,56 @@ class ChatMessagebox extends StatelessWidget {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              ListView.builder(
-                physics: const NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
-                itemCount: contactlist.length,
-                itemBuilder: (context, index) {
-                  return ListTile(
-                    leading: CircleAvatar(
-                      backgroundColor: Colors.teal,
-                      child: Icon(
-                        contactlist[index]['icon'],
-                        color: Colors.white,
-                      ),
-                    ),
-                    title: Text(
-                      contactlist[index]['New'],
-                      style: const TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: 18),
-                    ),
-                    trailing: Icon(
-                      contactlist[index]['sideicon'],
-                      size: 30,
+              ListTile(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const NewGroupPage(),
                     ),
                   );
                 },
+                leading: const CircleAvatar(
+                  backgroundColor: Colors.teal,
+                  child: Icon(
+                    Icons.group,
+                    color: Colors.white,
+                  ),
+                ),
+                title: const Text(
+                  'New group',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                ),
+              ),
+              const ListTile(
+                leading: CircleAvatar(
+                  backgroundColor: Colors.teal,
+                  child: Icon(
+                    Icons.person_add,
+                    color: Colors.white,
+                  ),
+                ),
+                title: Text(
+                  'New contact',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                ),
+                trailing: Icon(
+                  Icons.category,
+                  color: Colors.white,
+                ),
+              ),
+              const ListTile(
+                leading: CircleAvatar(
+                  backgroundColor: Colors.teal,
+                  child: Icon(
+                    Icons.groups_2,
+                    color: Colors.white,
+                  ),
+                ),
+                title: Text(
+                  'New community',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                ),
               ),
               const Padding(
                 padding: EdgeInsets.fromLTRB(0, 20, 215, 0),

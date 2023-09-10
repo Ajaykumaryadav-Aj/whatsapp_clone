@@ -13,9 +13,9 @@ class ChatBox extends StatefulWidget {
 class _ChatBoxState extends State<ChatBox> {
   final textcontroller = TextEditingController();
   List<Map<String, dynamic>> chats = [
-    {'name': 'rahul'},
-    {'name': 'rahul'},
-    {'name': 'rahul'}
+    {'name': 'hiii'},
+    {'name': 'Hi'},
+    {'name': 'Hello'}
   ];
   @override
   void initState() {
@@ -108,12 +108,24 @@ class _ChatBoxState extends State<ChatBox> {
         ),
       ),
       body: Column(
+        // crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Expanded(
             child: ListView.builder(
               itemCount: chats.length,
               itemBuilder: (BuildContext context, index) {
-                return ListTile(leading: Text(chats[index]['name']));
+                return Padding(
+                  padding: const EdgeInsets.only(left: 300),
+                  child: Card(
+                    // elevation: 50,
+                    child: Column(
+                      children: [
+                        Text(chats[index]['name']),
+                        const Text('8:00 pm'),
+                      ],
+                    ),
+                  ),
+                );
               },
             ),
           ),

@@ -7,7 +7,7 @@ class SettingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        actions: [Icon(Icons.abc)],
+        actions: const [Icon(Icons.abc)],
       ),
     );
   }
