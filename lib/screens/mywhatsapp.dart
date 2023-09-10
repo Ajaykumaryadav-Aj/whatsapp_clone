@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp/screens/add_call.dart';
 import 'package:whatsapp/screens/create_status.dart';
+import 'package:whatsapp/screens/pop_up_menu.dart';
+import 'package:whatsapp/screens/settings.dart';
 import 'package:whatsapp/screens/status_edit_box.dart';
 
 import 'chat_box.dart';
@@ -30,37 +32,37 @@ class MyWhatsapp extends StatelessWidget {
               color: Colors.white,
               size: 30,
             ),
-            const Padding(
-              padding: EdgeInsets.all(8.0),
-            ),
-            IconButton(
-              onPressed: () {
-                showDialog(
-                  context: context,
-                  builder: (context) => const Padding(
-                    padding: EdgeInsets.fromLTRB(170, 0, 0, 650),
-                    child: Dialog(
-                      child: Column(
-                        // mainAxisSize: MainAxisSize.min,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text('New group'),
-                          Text('New broadcast'),
-                          Text('Linked device'),
-                          Text('Starred message'),
-                          Text('Payment'),
-                          Text('Setting'),
-                        ],
+            // Icon(Icons.abc_outlined),
+            PopupMenuButton(
+              color: Colors.white,
+              itemBuilder: (context) => [
+                const PopupMenuItem(
+                  child: Text('search'),
+                ),
+                const PopupMenuItem(
+                  child: Text('New broadcast'),
+                ),
+                const PopupMenuItem(
+                  child: Text('Linked device'),
+                ),
+                const PopupMenuItem(
+                  child: Text('Starred message'),
+                ),
+                const PopupMenuItem(
+                  child: Text('Payments'),
+                ),
+                PopupMenuItem(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const SettingScreen(),
                       ),
-                    ),
-                  ),
-                );
-              },
-              icon: const Icon(
-                Icons.more_vert,
-                size: 30,
-                color: Colors.white,
-              ),
+                    );
+                  },
+                  child: const Text('Settings'),
+                ),
+              ],
             )
           ],
           title: const Text(
