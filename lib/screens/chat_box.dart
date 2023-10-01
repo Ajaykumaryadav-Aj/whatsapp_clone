@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:whatsapp/screens/mywhatsapp.dart';
+import 'package:whatsapp/utils/database.dart';
 
 class ChatBox extends StatefulWidget {
   const ChatBox({super.key, required this.index});
@@ -12,15 +13,20 @@ class ChatBox extends StatefulWidget {
 
 class _ChatBoxState extends State<ChatBox> {
   final textcontroller = TextEditingController();
-  List<Map<String, dynamic>> chats = [
-    {'name': 'hiii'},
-    {'name': 'Hi'},
-    {'name': 'Hello'}
-  ];
+  bool send = false;
+  bool icon = false;
+
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
+    textcontroller.addListener(() {
+      if (textcontroller.text.isNotEmpty) {
+        send = true;
+      } else {
+        send = false;
+      }
+      setState(() {});
+    });
   }
 
   @override
@@ -29,6 +35,9 @@ class _ChatBoxState extends State<ChatBox> {
       // backgroundColor: Colors.grey,
       appBar: AppBar(
         backgroundColor: Colors.teal,
+        leading: const BackButton(
+          color: Colors.white,
+        ),
         actions: const [
           Padding(
             padding: EdgeInsets.all(8.0),
@@ -53,17 +62,16 @@ class _ChatBoxState extends State<ChatBox> {
           ),
         ],
         title: Row(
+          // crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.max,
           children: [
-            Padding(
-              padding: const EdgeInsets.only(right: 18),
-              child: CircleAvatar(
-                radius: 23,
-                backgroundImage: AssetImage(chatimage[widget.index]['image']),
-              ),
+            CircleAvatar(
+              radius: 23,
+              backgroundImage: AssetImage(chatimage[widget.index]['image']),
             ),
             // SizedBox(width: 20),
             Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              // crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   chatlist[widget.index]['name'],
@@ -83,27 +91,28 @@ class _ChatBoxState extends State<ChatBox> {
         child: Stack(
           clipBehavior: Clip.none,
           children: [
-            FloatingActionButton(
-              heroTag: true,
-              onPressed: () {},
-              backgroundColor: Colors.teal,
-              shape: const CircleBorder(),
-              child: const Icon(
-                Icons.send,
-                color: Colors.white,
-                size: 30,
-              ),
-            ),
-            FloatingActionButton(
-              onPressed: () {},
-              backgroundColor: Colors.teal,
-              shape: const CircleBorder(),
-              child: const Icon(
-                Icons.keyboard_voice,
-                color: Colors.white,
-                size: 30,
-              ),
-            ),
+            send
+                ? FloatingActionButton(
+                    heroTag: true,
+                    onPressed: () {},
+                    backgroundColor: Colors.teal,
+                    shape: const CircleBorder(),
+                    child: const Icon(
+                      Icons.send,
+                      color: Colors.white,
+                      size: 30,
+                    ),
+                  )
+                : FloatingActionButton(
+                    onPressed: () {},
+                    backgroundColor: Colors.teal,
+                    shape: const CircleBorder(),
+                    child: const Icon(
+                      Icons.keyboard_voice,
+                      color: Colors.white,
+                      size: 30,
+                    ),
+                  ),
           ],
         ),
       ),
@@ -112,7 +121,7 @@ class _ChatBoxState extends State<ChatBox> {
         children: [
           Expanded(
             child: ListView.builder(
-              itemCount: chats.length,
+              itemCount: chating[widget.index]['messages'].length,
               itemBuilder: (BuildContext context, index) {
                 return Padding(
                   padding: const EdgeInsets.only(left: 300),
@@ -120,8 +129,9 @@ class _ChatBoxState extends State<ChatBox> {
                     // elevation: 50,
                     child: Column(
                       children: [
-                        Text(chats[index]['name']),
-                        const Text('8:00 pm'),
+                        Text(chating[widget.index]['messages'][index]
+                            ['message']),
+                        Text(chating[widget.index]['messages'][index]['time']),
                       ],
                     ),
                   ),
@@ -131,63 +141,64 @@ class _ChatBoxState extends State<ChatBox> {
           ),
 
           // const Text(''),
-          Expanded(
-            child: Align(
-              alignment: Alignment.bottomLeft,
-              child: TextField(
-                controller: textcontroller,
-                onSubmitted: (value) {
-                  chats.add({
-                    'name': value,
+          Align(
+            alignment: Alignment.bottomLeft,
+            child: TextField(
+              textInputAction: TextInputAction.done,
+              controller: textcontroller,
+              onSubmitted: (value) {
+                if (textcontroller.text.isNotEmpty) {
+                  chating.add({
+                    'messages': value,
                   });
                   setState(() {});
-                },
-                style: const TextStyle(fontSize: 20),
-                keyboardType: TextInputType.multiline,
-                cursorColor: Colors.teal,
-                cursorWidth: 3,
-                decoration: const InputDecoration(
-                  fillColor: Colors.white,
-                  filled: true,
-                  prefixIcon: Icon(Icons.tag_faces, size: 34),
-                  //
-                  suffixIcon: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: Icon(Icons.link, size: 28),
+                }
+              },
+              style: const TextStyle(fontSize: 20),
+              keyboardType: TextInputType.multiline,
+              cursorColor: Colors.teal,
+              cursorWidth: 3,
+              decoration: const InputDecoration(
+                fillColor: Colors.white,
+                filled: true,
+                prefixIcon: Icon(Icons.tag_faces, size: 34),
+                //
+                suffixIcon: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Icon(Icons.link, size: 28),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Icon(
+                        Icons.currency_rupee,
                       ),
-                      Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: Icon(
-                          Icons.currency_rupee,
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: Icon(Icons.photo_camera),
-                      ),
-                    ],
-                  ),
-                  // suffix: Icon(
-                  //   Icons.add_circle_outline_rounded,
-                  // ),
-                  hintText: 'Message',
-                  hintStyle: TextStyle(
-                    fontSize: 21,
-                  ),
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(40),
-                      ),
-                      borderSide: BorderSide.none),
-                  constraints: BoxConstraints(maxHeight: 350, maxWidth: 340),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Icon(Icons.photo_camera),
+                    ),
+                  ],
                 ),
-                onTap: () {
-                  log('message');
-                },
+                // suffix: Icon(
+                //   Icons.add_circle_outline_rounded,
+                // ),
+                hintText: 'Message',
+                hintStyle: TextStyle(
+                  fontSize: 21,
+                ),
+                border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(40),
+                    ),
+                    borderSide: BorderSide.none),
+                constraints: BoxConstraints(maxHeight: 350, maxWidth: 340),
               ),
+              onTap: () {
+                log('message');
+              },
             ),
           ),
         ],

@@ -1,0 +1,135 @@
+import 'package:flutter/material.dart';
+import 'package:whatsapp/screens/profile.dart';
+
+List<Map<String, dynamic>> settinglist = [
+  {
+    'icon': Icons.key,
+    'name': 'Account',
+    'subname': 'Security notification,change number'
+  },
+  {
+    'icon': Icons.lock,
+    'name': 'Privacy',
+    'subname': 'Block contacts ,disappearing messages'
+  },
+  {
+    'icon': Icons.support_agent_outlined,
+    'name': 'Avatar',
+    'subname': 'Create, edit,profile photo '
+  },
+  {
+    'icon': Icons.chat,
+    'name': 'Chats',
+    'subname': 'Theme,wallpapers,chat history '
+  },
+  {
+    'icon': Icons.notifications_none,
+    'name': 'Notification',
+    'subname': 'Message,group,&call tones '
+  },
+  {
+    'icon': Icons.data_usage,
+    'name': 'Storage and data',
+    'subname': 'Network usage ,auto download '
+  },
+  {
+    'icon': Icons.language,
+    'name': 'App language',
+    'subname': 'English (devices language)'
+  },
+  {
+    'icon': Icons.help_outline,
+    'name': 'Help',
+    'subname': 'Help center,contact us, privacy'
+  },
+  {'icon': Icons.group, 'name': 'Invite a friend', 'subname': ' '}
+];
+
+class SettingScreen extends StatelessWidget {
+  const SettingScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.teal,
+        title: const Text(
+          'Settings',
+          style: TextStyle(color: Colors.white),
+        ),
+        actions: const [
+          Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Icon(
+              Icons.search,
+              color: Colors.white,
+              size: 30,
+            ),
+          )
+        ],
+      ),
+      body: Column(
+        children: [
+          ListTile(
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const ProfileScreen(),
+                  ));
+            },
+            leading: const CircleAvatar(
+              backgroundImage: AssetImage('assets/images/Tiranga.jpg'),
+              radius: 30,
+            ),
+            title: const Text(
+              'Ajay',
+              style: TextStyle(fontSize: 22),
+            ),
+            subtitle: const Text(
+              'Urgent call only',
+              style: TextStyle(fontSize: 16),
+            ),
+            trailing: const Icon(
+              Icons.qr_code,
+              color: Colors.teal,
+              size: 30,
+            ),
+          ),
+          const Divider(),
+          ListView.builder(
+            itemCount: settinglist.length,
+            shrinkWrap: true,
+            itemBuilder: (context, index) {
+              return ListTile(
+                leading: Icon(
+                  settinglist[index]['icon'],
+                  color: Colors.grey,
+                ),
+                title: Padding(
+                  padding: const EdgeInsets.only(left: 8),
+                  child: Text(
+                    settinglist[index]['name'],
+                    style: const TextStyle(fontSize: 18),
+                  ),
+                ),
+                subtitle: Padding(
+                  padding: const EdgeInsets.only(left: 8),
+                  child: Text(
+                    settinglist[index]['subname'],
+                    style: const TextStyle(fontSize: 16),
+                  ),
+                ),
+              );
+            },
+          ),
+          const Text('from', style: TextStyle(fontSize: 16)),
+          const Text(
+            'Meta',
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+          )
+        ],
+      ),
+    );
+  }
+}

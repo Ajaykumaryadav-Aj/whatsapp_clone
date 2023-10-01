@@ -22,6 +22,9 @@ class NewGroupPage extends StatelessWidget {
           'New group',
           style: TextStyle(color: Colors.white),
         ),
+        leading: const BackButton(
+          color: Colors.white,
+        ),
         actions: const [
           Padding(
             padding: EdgeInsets.all(8.0),

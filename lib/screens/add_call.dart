@@ -58,6 +58,9 @@ class AddCalls extends StatelessWidget {
           'Selected contact',
           style: TextStyle(color: Colors.white),
         ),
+        leading: const BackButton(
+          color: Colors.white,
+        ),
         actions: const [
           Padding(
             padding: EdgeInsets.all(8.0),
@@ -110,7 +113,8 @@ class AddCalls extends StatelessWidget {
                 ),
                 title: Text(
                   addprsnlist[index]['name'],
-                  style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                  style: const TextStyle(
+                      fontWeight: FontWeight.bold, fontSize: 18),
                 ),
                 subtitle: Text(addprsnlist[index]['message']),
                 trailing: const Wrap(spacing: 25, children: [
@@ -139,7 +143,8 @@ class AddCalls extends StatelessWidget {
                 ),
                 title: Text(
                   addinvite[index]['name'],
-                  style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                  style: const TextStyle(
+                      fontWeight: FontWeight.bold, fontSize: 18),
                 ),
               );
             },

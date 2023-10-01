@@ -9,6 +9,9 @@ class StatusEditBox extends StatelessWidget {
       backgroundColor: Colors.blue,
       appBar: AppBar(
         backgroundColor: Colors.blue,
+        leading: const BackButton(
+          color: Colors.white,
+        ),
         actions: const [
           Padding(
             padding: EdgeInsets.all(8.0),

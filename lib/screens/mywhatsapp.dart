@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp/screens/add_call.dart';
 import 'package:whatsapp/screens/create_status.dart';
-import 'package:whatsapp/screens/settings.dart';
 import 'package:whatsapp/screens/status_edit_box.dart';
 
 import 'chat_box.dart';
@@ -54,18 +53,19 @@ class MyWhatsapp extends StatelessWidget {
                 const PopupMenuItem(
                   child: Text('Payments'),
                 ),
-                PopupMenuItem(
-                
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const SettingScreen(),
-                      ),
-                    );
-                  },
-                  child: const Text('Settings'),
-                ),
+                // PopupMenuItem(
+                //   child: const Text('Settings'),
+                //   onTap: () async {
+                //     await Navigator.push(
+                //       navigatorkey.currentContext!,
+                //       MaterialPageRoute(
+                //         builder: (context) {
+                //           return const SettingScreen();
+                //         },
+                //       ),
+                //     );
+                //   },
+                // ),
               ],
             )
           ],

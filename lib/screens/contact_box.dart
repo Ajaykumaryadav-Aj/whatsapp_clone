@@ -42,12 +42,16 @@ class ChatMessagebox extends StatelessWidget {
             'Select contact',
             style: TextStyle(color: Colors.white),
           ),
+          leading: const BackButton(
+            color: Colors.white,
+          ),
           actions: const [
             Padding(
               padding: EdgeInsets.all(8.0),
               child: Icon(
                 Icons.search,
                 color: Colors.white,
+                size: 30,
               ),
             ),
             Padding(
@@ -55,6 +59,7 @@ class ChatMessagebox extends StatelessWidget {
               child: Icon(
                 Icons.more_vert,
                 color: Colors.white,
+                size: 30,
               ),
             ),
           ],
