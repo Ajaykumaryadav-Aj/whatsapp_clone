@@ -75,7 +75,6 @@ List<Map<String, dynamic>> chating = [
   },
 ];
 
-
 List<Map<String, dynamic>> chatlist = [
   {'name': "Ajay", 'message': 'Hi'},
   {'name': 'Mrs', 'message': 'hello'},
@@ -96,7 +95,6 @@ List<Map<String, dynamic>> chatimage = [
   {"image": 'assets/images/aj1.jpg'},
   {"image": 'assets/images/aj1.jpg'}
 ];
-
 
 List<Map<String, dynamic>> statuslist = [
   {
@@ -136,7 +134,6 @@ List<Map<String, dynamic>> statuslist = [
   },
   {'name': 'raj', 'message': 'Today,9:00 am', 'image': 'assets/images/aj2.jpg'}
 ];
-
 
 List<Map<String, dynamic>> calllist = [
   {'name': "Ajay", 'message': '29 August, 3:21 pm', 'icon': Icons.call},
@@ -209,7 +206,6 @@ List<Map<String, dynamic>> settinglist = [
   {'icon': Icons.group, 'name': 'Invite a friend', 'subname': ' '}
 ];
 
-
 List<Map<String, dynamic>> addinvite = [
   {"icon": Icons.share, 'name': 'Invite friend'},
   {'icon': Icons.help, 'name': 'contact help'},
@@ -256,8 +252,6 @@ List<Map<String, dynamic>> addprsnlist = [
   },
 ];
 
-
-
 List<Map<String, dynamic>> contactlist = [
   {'icon': Icons.group, 'New': 'New group'},
   {'icon': Icons.person_add, 'New': 'New contact', 'sideicon': Icons.qr_code},
@@ -265,11 +259,6 @@ List<Map<String, dynamic>> contactlist = [
 ];
 
 List<Map<String, dynamic>> contactprsnlist = [
-  {'name': "(You)", 'message': 'message yourself', 'sidetext': ''},
-  {'name': 'Mrs', 'message': 'Hey there i am using WhatsApp', 'sidetext': ''},
-  {'name': 'Maneger', 'message': '😎', 'sidetext': ''},
-  {'name': 'saurabh', 'message': 'keep smiling😀', 'sidetext': ''},
-  {'name': 'Raju', 'message': 'Urgent calls only', 'sidetext': ''},
   {'name': "(You)", 'message': 'message yourself', 'sidetext': ''},
   {'name': 'Mrs', 'message': 'Hey there i am using WhatsApp', 'sidetext': ''},
   {'name': 'Maneger', 'message': '😎', 'sidetext': ''},
@@ -289,7 +278,6 @@ List<Map<String, dynamic>> invitelist = [
   },
   {'icon': Icons.help, 'name': 'Contacts help', 'message': '', 'sidetext': ''},
 ];
-
 
 List<Map<String, dynamic>> profilelist = [
   {

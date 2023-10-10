@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:whatsapp/main.dart';
 import 'package:whatsapp/screens/add_call.dart';
+import 'package:whatsapp/screens/call_info_screen.dart';
 import 'package:whatsapp/screens/create_status.dart';
+import 'package:whatsapp/screens/setting_screen.dart';
 import 'package:whatsapp/screens/status_edit_box.dart';
 import 'package:whatsapp/utils/database.dart';
 
@@ -54,19 +57,19 @@ class MyWhatsapp extends StatelessWidget {
                 const PopupMenuItem(
                   child: Text('Payments'),
                 ),
-                // PopupMenuItem(
-                //   child: const Text('Settings'),
-                //   onTap: () async {
-                //     await Navigator.push(
-                //       navigatorkey.currentContext!,
-                //       MaterialPageRoute(
-                //         builder: (context) {
-                //           return const SettingScreen();
-                //         },
-                //       ),
-                //     );
-                //   },
-                // ),
+                PopupMenuItem(
+                  child: const Text('Settings'),
+                  onTap: () async {
+                    await Navigator.push(
+                      navigatorkey.currentContext!,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return const SettingScreen();
+                        },
+                      ),
+                    );
+                  },
+                ),
               ],
             )
           ],
@@ -138,7 +141,6 @@ class MyCommunity extends StatelessWidget {
 
 //*➡️➡️➡️➡️➡️➡️***********CallsTab************************************************* */
 
-
 class CallsTab extends StatelessWidget {
   const CallsTab({super.key});
 
@@ -194,6 +196,13 @@ class CallsTab extends StatelessWidget {
                 itemCount: calllist.length,
                 itemBuilder: (context, index) {
                   return ListTile(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const CallInfoScreen(),
+                          ));
+                    },
                     leading: CircleAvatar(
                       backgroundImage: AssetImage(statuslist[index]['image']),
                       radius: 25.0,
@@ -221,8 +230,6 @@ class CallsTab extends StatelessWidget {
 }
 
 //*➡️➡️➡️➡️➡️➡️➡️➡️***********StatusTab******************************************* */
-
-
 
 class StatusTab extends StatelessWidget {
   const StatusTab({super.key});
@@ -334,7 +341,6 @@ class StatusTab extends StatelessWidget {
 }
 
 //***➡️➡️➡️➡️➡️➡️➡️********ChatTab************************************************* */
-
 
 class ChatTab extends StatelessWidget {
   const ChatTab({

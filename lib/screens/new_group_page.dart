@@ -66,12 +66,16 @@ class _NewGroupPageState extends State<NewGroupPage> {
                     ),
                     Positioned(
                       right: 0,
+                      bottom: 30,
                       child: GestureDetector(
                           onTap: () {
                             selectusers.removeAt(index);
                             setState(() {});
                           },
-                          child: const Icon(Icons.cancel)),
+                          child: const Icon(
+                            Icons.cancel,
+                            color: Colors.grey,
+                          )),
                     )
                   ]),
                 ),
@@ -84,13 +88,34 @@ class _NewGroupPageState extends State<NewGroupPage> {
               itemBuilder: (context, index) {
                 return ListTile(
                   selected: selectusers.contains(contactprsnlist[index]),
+                  selectedColor: Colors.grey,
                   onTap: () {
-                    selectusers.add(contactprsnlist[index]);
+                    if (selectusers.contains(contactprsnlist[index])) {
+                      selectusers.remove(contactprsnlist[index]);
+                    } else {
+                      selectusers.add(contactprsnlist[index]);
+                    }
                     setState(() {});
                   },
-                  leading: CircleAvatar(
-                    backgroundImage: AssetImage(chatimage[index]['image']),
-                  ),
+                  leading: Stack(children: [
+                    CircleAvatar(
+                      backgroundImage: AssetImage(chatimage[index]['image']),
+                    ),
+                    if (selectusers.contains(contactprsnlist[index]))
+                      Positioned(
+                        right: 0,
+                        bottom: 0,
+                        child: Container(
+                          decoration: const BoxDecoration(
+                              color: Colors.green, shape: BoxShape.circle),
+                          child: const Icon(
+                            Icons.done,
+                            color: Colors.white,
+                            size: 15,
+                          ),
+                        ),
+                      ),
+                  ]),
                   title: Text(
                     contactprsnlist[index]['name'],
                     style: const TextStyle(
