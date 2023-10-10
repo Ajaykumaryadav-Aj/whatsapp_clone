@@ -1,33 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:whatsapp/screens/mywhatsapp.dart';
 import 'package:whatsapp/screens/new_group_page.dart';
+import 'package:whatsapp/utils/database.dart';
 
-List<Map<String, dynamic>> contactlist = [
-  {'icon': Icons.group, 'New': 'New group'},
-  {'icon': Icons.person_add, 'New': 'New contact', 'sideicon': Icons.qr_code},
-  {'icon': Icons.groups, 'New': 'New community'},
-];
-
-List<Map<String, dynamic>> contactprsnlist = [
-  {'name': "(You)", 'message': 'message yourself', 'sidetext': ''},
-  {'name': 'Mrs', 'message': 'Hey there i am using WhatsApp', 'sidetext': ''},
-  {'name': 'Maneger', 'message': '😎', 'sidetext': ''},
-  {'name': 'saurabh', 'message': 'keep smiling😀', 'sidetext': ''},
-  {'name': 'Raju', 'message': 'Urgent calls only', 'sidetext': ''},
-];
-
-List<Map<String, dynamic>> invitelist = [
-  {'icon': Icons.person, 'name': 'Ramu', 'message': '', 'sidetext': 'Invite'},
-  {'icon': Icons.person, 'name': 'aditya', 'message': '', 'sidetext': 'Invite'},
-  {'icon': Icons.person, 'name': 'Monu', 'message': '', 'sidetext': 'Invite'},
-  {
-    'icon': Icons.share,
-    'name': 'Share invite link',
-    'message': '',
-    'sidetext': ''
-  },
-  {'icon': Icons.help, 'name': 'Contacts help', 'message': '', 'sidetext': ''},
-];
 
 class ChatMessagebox extends StatelessWidget {
   const ChatMessagebox({super.key});

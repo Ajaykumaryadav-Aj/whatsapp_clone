@@ -1,49 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp/screens/profile.dart';
+import 'package:whatsapp/utils/database.dart';
 
-List<Map<String, dynamic>> settinglist = [
-  {
-    'icon': Icons.key,
-    'name': 'Account',
-    'subname': 'Security notification,change number'
-  },
-  {
-    'icon': Icons.lock,
-    'name': 'Privacy',
-    'subname': 'Block contacts ,disappearing messages'
-  },
-  {
-    'icon': Icons.support_agent_outlined,
-    'name': 'Avatar',
-    'subname': 'Create, edit,profile photo '
-  },
-  {
-    'icon': Icons.chat,
-    'name': 'Chats',
-    'subname': 'Theme,wallpapers,chat history '
-  },
-  {
-    'icon': Icons.notifications_none,
-    'name': 'Notification',
-    'subname': 'Message,group,&call tones '
-  },
-  {
-    'icon': Icons.data_usage,
-    'name': 'Storage and data',
-    'subname': 'Network usage ,auto download '
-  },
-  {
-    'icon': Icons.language,
-    'name': 'App language',
-    'subname': 'English (devices language)'
-  },
-  {
-    'icon': Icons.help_outline,
-    'name': 'Help',
-    'subname': 'Help center,contact us, privacy'
-  },
-  {'icon': Icons.group, 'name': 'Invite a friend', 'subname': ' '}
-];
+
 
 class SettingScreen extends StatelessWidget {
   const SettingScreen({super.key});

@@ -1,50 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:whatsapp/utils/database.dart';
 
-List<Map<String, dynamic>> addinvite = [
-  {"icon": Icons.share, 'name': 'Invite friend'},
-  {'icon': Icons.help, 'name': 'contact help'},
-];
-List<Map<String, dynamic>> addcalllist = [
-  {'icon': Icons.link, 'new': 'New call link'},
-  {
-    'icon': Icons.group,
-    'new': 'New group call',
-  },
-  {'icon': Icons.person_add, 'new': 'New contact', 'sideicon': Icons.qr_code},
-];
 
-List<Map<String, dynamic>> addprsnlist = [
-  {
-    'name': "Ajay",
-    'message': 'message yourself',
-    'sidetext': '',
-    'image': "assets/images/Tiranga.jpg"
-  },
-  {
-    'name': 'Rajesh',
-    'message': 'Hey there i am using WhatsApp',
-    'sidetext': '',
-    'image': "assets/images/Tiranga.jpg"
-  },
-  {
-    'name': 'Maneger',
-    'message': '😎',
-    'sidetext': '',
-    'image': "assets/images/Tiranga.jpg"
-  },
-  {
-    'name': 'saurabh',
-    'message': 'keep smiling😀',
-    'sidetext': '',
-    'image': "assets/images/Tiranga.jpg"
-  },
-  {
-    'name': 'Raju',
-    'message': 'Urgent calls only',
-    'sidetext': '',
-    'image': "assets/images/Tiranga.jpg"
-  },
-];
 
 class AddCalls extends StatelessWidget {
   const AddCalls({super.key});

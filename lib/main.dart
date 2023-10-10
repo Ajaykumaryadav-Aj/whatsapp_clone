@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:whatsapp/screens/setting_screen.dart';
+import 'package:whatsapp/screens/mywhatsapp.dart';
 
 final navigatorkey = GlobalKey<NavigatorState>();
 
@@ -16,10 +16,10 @@ class MyApp extends StatelessWidget {
       navigatorKey: navigatorkey,
       theme: ThemeData(useMaterial3: true),
       debugShowCheckedModeBanner: false,
-      title: "whatsapp",
+      title: "whatsapp", color: Colors.amber,
 
-      // home: const MyWhatsapp(),
-      home: const SettingScreen(),
+      home: const MyWhatsapp(),
+      // home: const SettingScreen(),
     );
   }
 }

@@ -1,25 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:whatsapp/utils/database.dart';
 
-List<Map<String, dynamic>> profilelist = [
-  {
-    'icon': Icons.person,
-    'name': 'Name',
-    'subname':
-        'This is not your username or pin.this name will be visible to your WhatsApp contacts',
-    'icons': Icons.edit
-  },
-  {
-    'icon': Icons.error_outline,
-    'name': 'About',
-    'subname': 'Urgents call only',
-    'icons': Icons.edit
-  },
-  {
-    'icon': Icons.call,
-    'name': 'About',
-    'subname': '+917050606820',
-  },
-];
+
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:whatsapp/screens/add_call.dart';
 import 'package:whatsapp/screens/create_status.dart';
 import 'package:whatsapp/screens/status_edit_box.dart';
+import 'package:whatsapp/utils/database.dart';
 
 import 'chat_box.dart';
 import 'contact_box.dart';
@@ -137,32 +138,6 @@ class MyCommunity extends StatelessWidget {
 
 //*➡️➡️➡️➡️➡️➡️***********CallsTab************************************************* */
 
-List<Map<String, dynamic>> calllist = [
-  {'name': "Ajay", 'message': '29 August, 3:21 pm', 'icon': Icons.call},
-  {
-    'name': 'Mrs',
-    'message': 'Yesterday,4:40 pm',
-    'icon': Icons.videocam,
-  },
-  {'name': 'Maneger', 'message': 'Today, 6:00 am', 'icon': Icons.call},
-  {'name': 'saurabh', 'message': '31 August, 2:09 pm', 'icon': Icons.call},
-  {
-    'name': 'Raju',
-    'message': '21 August, 8:05 am',
-    'icon': Icons.videocam,
-  },
-  {
-    'name': 'sonu',
-    'message': '20 August, 5:00 am',
-    'icon': Icons.videocam,
-  },
-  {
-    'name': 'abhijeet',
-    'message': '18 August, 7:20 pm',
-    'icon': Icons.videocam,
-  },
-  {'name': 'raj', 'message': '15 August, 3:27 pm', 'icon': Icons.call}
-];
 
 class CallsTab extends StatelessWidget {
   const CallsTab({super.key});
@@ -247,44 +222,7 @@ class CallsTab extends StatelessWidget {
 
 //*➡️➡️➡️➡️➡️➡️➡️➡️***********StatusTab******************************************* */
 
-List<Map<String, dynamic>> statuslist = [
-  {
-    'name': "Ajay",
-    'message': 'Today,3:56 pm',
-    'image': 'assets/images/Tiranga.jpg'
-  },
-  {
-    'name': 'Mrs',
-    'message': '30 minutes ago',
-    'image': 'assets/images/dp image.jpg'
-  },
-  {
-    'name': 'Maneger',
-    'message': 'Yesterday,10:00 pm',
-    'image': 'assets/images/dp image.jpg'
-  },
-  {
-    'name': 'saurabh',
-    'message': 'Today, 8:00 am',
-    'image': 'assets/images/aj2.jpg'
-  },
-  {
-    'name': 'Raju',
-    'message': '15 minites ago',
-    'image': 'assets/images/aj2.jpg'
-  },
-  {
-    'name': 'sonu',
-    'message': 'Today,6:00 pm',
-    'image': 'assets/images/aj2.jpg'
-  },
-  {
-    'name': 'abhijeet',
-    'message': '18 minites ago',
-    'image': 'assets/images/aj2.jpg'
-  },
-  {'name': 'raj', 'message': 'Today,9:00 am', 'image': 'assets/images/aj2.jpg'}
-];
+
 
 class StatusTab extends StatelessWidget {
   const StatusTab({super.key});
@@ -397,26 +335,6 @@ class StatusTab extends StatelessWidget {
 
 //***➡️➡️➡️➡️➡️➡️➡️********ChatTab************************************************* */
 
-List<Map<String, dynamic>> chatlist = [
-  {'name': "Ajay", 'message': 'Hi'},
-  {'name': 'Mrs', 'message': 'hello'},
-  {'name': 'Maneger', 'message': 'morning'},
-  {'name': 'saurabh', 'message': 'Hiiiiii'},
-  {'name': 'Raju', 'message': 'hi bro'},
-  {'name': 'sonu', 'message': 'Hello'},
-  {'name': 'abhijeet', 'message': 'yes'},
-  {'name': 'raj', 'message': 'okay'}
-];
-List<Map<String, dynamic>> chatimage = [
-  {'image': "assets/images/Tiranga.jpg"},
-  {'image': "assets/images/dp image.jpg"},
-  {'image': "assets/images/dp image.jpg"},
-  {'image': "assets/images/dp image.jpg"},
-  {'image': "assets/images/dp image.jpg"},
-  {"image": 'assets/images/aj1.jpg'},
-  {"image": 'assets/images/aj1.jpg'},
-  {"image": 'assets/images/aj1.jpg'}
-];
 
 class ChatTab extends StatelessWidget {
   const ChatTab({

@@ -1,7 +1,6 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:whatsapp/screens/mywhatsapp.dart';
 import 'package:whatsapp/utils/database.dart';
 
 class ChatBox extends StatefulWidget {
@@ -61,29 +60,29 @@ class _ChatBoxState extends State<ChatBox> {
             ),
           ),
         ],
-        title: Row(
-          // crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            CircleAvatar(
-              radius: 23,
-              backgroundImage: AssetImage(chatimage[widget.index]['image']),
-            ),
-            // SizedBox(width: 20),
-            Column(
-              // crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  chatlist[widget.index]['name'],
-                  style: const TextStyle(color: Colors.white),
-                ),
-                const Text(
-                  '3:00 pm',
-                  style: TextStyle(fontSize: 15, color: Colors.white),
-                )
-              ],
-            )
-          ],
+        title: Padding(
+          padding: const EdgeInsets.only(right: 30),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              CircleAvatar(
+                radius: 23,
+                backgroundImage: AssetImage(chatimage[widget.index]['image']),
+              ),
+              // SizedBox(width: 20),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    chatlist[widget.index]['name'],
+                    style: const TextStyle(color: Colors.white),
+                  ),
+                  
+                ],
+              )
+            ],
+          ),
         ),
       ),
       floatingActionButton: Padding(
@@ -117,7 +116,6 @@ class _ChatBoxState extends State<ChatBox> {
         ),
       ),
       body: Column(
-        // crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Expanded(
             child: ListView.builder(
@@ -151,7 +149,9 @@ class _ChatBoxState extends State<ChatBox> {
                   chating.add({
                     'messages': value,
                   });
-                  setState(() {});
+                  setState(() {
+                
+                  });
                 }
               },
               style: const TextStyle(fontSize: 20),
@@ -182,9 +182,7 @@ class _ChatBoxState extends State<ChatBox> {
                     ),
                   ],
                 ),
-                // suffix: Icon(
-                //   Icons.add_circle_outline_rounded,
-                // ),
+              
                 hintText: 'Message',
                 hintStyle: TextStyle(
                   fontSize: 21,
