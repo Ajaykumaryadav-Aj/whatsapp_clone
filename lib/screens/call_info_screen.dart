@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:whatsapp/utils/database.dart';
 
 class CallInfoScreen extends StatelessWidget {
   const CallInfoScreen({super.key});
@@ -39,21 +40,25 @@ class CallInfoScreen extends StatelessWidget {
           Expanded(
             child: ListView.builder(
               shrinkWrap: true,
-              itemCount: 1,
+              itemCount: calllist.length,
               itemBuilder: (context, index) {
-                return const ListTile(
-                  leading: CircleAvatar(),
-                  title: Text('data'),
-                  subtitle: Text('data'),
-                  trailing: Wrap(
-                    spacing: 20,
-                    children: [
-                      Icon(
-                        Icons.call,
-                        color: Colors.teal,
-                      ),
-                      Icon(Icons.videocam, color: Colors.teal)
-                    ],
+                return GestureDetector(
+                  child: ListTile(
+                    leading: CircleAvatar(
+                      backgroundImage: AssetImage(statuslist[index]['image'],),
+                    ),
+                    title: Text(calllist[index]['name']),
+                    subtitle: Text(calllist[index]['message']),
+                    trailing: const Wrap(
+                      spacing: 20,
+                      children: [
+                        Icon(
+                          Icons.call,
+                          color: Colors.teal,
+                        ),
+                        Icon(Icons.videocam, color: Colors.teal)
+                      ],
+                    ),
                   ),
                 );
               },
@@ -68,3 +73,5 @@ class CallInfoScreen extends StatelessWidget {
     );
   }
 }
+//  Text(chating[widget.index]['messages'][index]
+                            // ['message']),
