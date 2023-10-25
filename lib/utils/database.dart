@@ -76,7 +76,7 @@ List<Map<String, dynamic>> chating = [
 ];
 
 List<Map<String, dynamic>> chatlist = [
-  {'name': "Ajay", 'message': 'Hi'},
+  {'name': "Ajay Kumar", 'message': 'Hi'},
   {'name': 'Mrs', 'message': 'hello'},
   {'name': 'Maneger', 'message': 'morning'},
   {'name': 'saurabh', 'message': 'Hiiiiii'},
@@ -211,7 +211,7 @@ List<Map<String, dynamic>> addinvite = [
   {'icon': Icons.help, 'name': 'contact help'},
 ];
 List<Map<String, dynamic>> addcalllist = [
-  {'icon': Icons.link, 'new': 'New call link'},
+ 
   {
     'icon': Icons.group,
     'new': 'New group call',

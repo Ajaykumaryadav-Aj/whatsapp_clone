@@ -5,7 +5,6 @@ import 'package:whatsapp/screens/chat_tab.dart';
 import 'package:whatsapp/screens/setting_screen.dart';
 import 'package:whatsapp/screens/status_tab.dart';
 
-
 class MyWhatsapp extends StatelessWidget {
   const MyWhatsapp({super.key});
 
@@ -50,12 +49,8 @@ class MyWhatsapp extends StatelessWidget {
                 const PopupMenuItem(
                   child: Text('Starred message'),
                 ),
-                const PopupMenuItem(
-                  child: Text('Payments'),
-                ),
-                PopupMenuItem(
-                  child: const Text('Settings'),
-                  onTap: () async {
+                 PopupMenuItem(
+                   onTap: () async {
                     await Navigator.push(
                       navigatorkey.currentContext!,
                       MaterialPageRoute(
@@ -65,6 +60,11 @@ class MyWhatsapp extends StatelessWidget {
                       ),
                     );
                   },
+                  child: const Text('Payments'),
+                ),
+                const PopupMenuItem(
+                  child: Text('Settings'),
+                 
                 ),
               ],
             )
@@ -134,4 +134,3 @@ class MyCommunity extends StatelessWidget {
     );
   }
 }
-

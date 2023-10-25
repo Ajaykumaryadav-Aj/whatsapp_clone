@@ -1,9 +1,49 @@
 import 'package:flutter/material.dart';
-import 'package:whatsapp/utils/database.dart';
 
-class CallInfoScreen extends StatelessWidget {
-  const CallInfoScreen({super.key});
+List<Map<String, dynamic>> callinfolist = [
+  {
+    'name': "Ajay",
+    'message': 'Hey there i am whatsapp using',
+    'image': 'assets/images/Tiranga.jpg'
+  },
+  {
+    'name': 'Mrs',
+    'message': 'only urgent call',
+    'image': 'assets/images/dp image.jpg'
+  },
+  {'name': 'Maneger', 'message': 'Busy', 'image': 'assets/images/dp image.jpg'},
+  {'name': 'saurabh', 'message': '🚩', 'image': 'assets/images/aj2.jpg'},
+  {
+    'name': 'Raju',
+    'message': 'Hey there i am whatsapp using',
+    'image': 'assets/images/aj2.jpg'
+  },
+  {
+    'name': 'sonu',
+    'message': 'Hey there i am whatsapp using',
+    'image': 'assets/images/aj2.jpg'
+  },
+  {
+    'name': 'abhijeet',
+    'message': 'Hey there i am whatsapp using',
+    'image': 'assets/images/aj2.jpg'
+  },
+  {
+    'name': 'raj',
+    'message': 'Urgent call only',
+    'image': 'assets/images/aj2.jpg'
+  }
+];
 
+class CallInfoScreen extends StatefulWidget {
+  const CallInfoScreen({super.key, required this.index});
+  final int index;
+
+  @override
+  State<CallInfoScreen> createState() => _CallInfoScreenState();
+}
+
+class _CallInfoScreenState extends State<CallInfoScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,36 +77,57 @@ class CallInfoScreen extends StatelessWidget {
       ),
       body: Column(
         children: [
-          Expanded(
-            child: ListView.builder(
-              shrinkWrap: true,
-              itemCount: calllist.length,
-              itemBuilder: (context, index) {
-                return GestureDetector(
-                  child: ListTile(
-                    leading: CircleAvatar(
-                      backgroundImage: AssetImage(statuslist[index]['image'],),
-                    ),
-                    title: Text(calllist[index]['name']),
-                    subtitle: Text(calllist[index]['message']),
-                    trailing: const Wrap(
-                      spacing: 20,
-                      children: [
-                        Icon(
-                          Icons.call,
-                          color: Colors.teal,
-                        ),
-                        Icon(Icons.videocam, color: Colors.teal)
-                      ],
-                    ),
+          ListView.builder(
+            shrinkWrap: true,
+            itemCount: 1,
+            itemBuilder: (context, index) {
+              return ListTile(
+                onTap: () {},
+                leading: CircleAvatar(
+                  backgroundImage: AssetImage(
+                    callinfolist[widget.index]['image'],
                   ),
-                );
-              },
-            ),
+                ),
+                title: Text(callinfolist[widget.index]['name']),
+                subtitle: Text(callinfolist[widget.index]['message']),
+                trailing: const Wrap(
+                  spacing: 20,
+                  children: [
+                    Icon(
+                      Icons.call,
+                      color: Colors.teal,
+                    ),
+                    Icon(Icons.videocam, color: Colors.teal)
+                  ],
+                ),
+              );
+            },
+          ),
+          const Divider(),
+          const Padding(
+            padding: EdgeInsets.only(right: 230),
+            child: Text('22 October'),
           ),
           const ListTile(
-            leading: Icon(Icons.call_missed_outgoing),
-            // title: Text(),
+            leading: Icon(
+              Icons.south_west,
+              color: Colors.teal,
+            ),
+            title: Text('Incoming'),
+            subtitle: Wrap(
+              children: [
+                Icon(
+                  Icons.call,
+                  color: Colors.grey,
+                  size: 18,
+                ),
+                Text('1:35 pm')
+              ],
+            ),
+            trailing: Text(
+              '12:55',
+              style: TextStyle(fontSize: 14, color: Colors.grey),
+            ),
           )
         ],
       ),

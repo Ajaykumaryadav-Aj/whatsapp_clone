@@ -42,7 +42,6 @@ class ChatTab extends StatelessWidget {
               );
             },
             child: ListTile(
-              //contentPadding: const EdgeInsets.symmetric(vertical: 8.0),
               leading: GestureDetector(
                 onTap: () {
                   showDialog(

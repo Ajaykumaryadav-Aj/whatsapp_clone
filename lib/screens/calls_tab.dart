@@ -24,8 +24,7 @@ class CallsTab extends StatelessWidget {
           color: Colors.white,
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 18),
+      body: SingleChildScrollView(
         child: Column(
           children: [
             const ListTile(
@@ -54,6 +53,7 @@ class CallsTab extends StatelessWidget {
               ),
             ),
             ListView.builder(
+                physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
                 itemCount: calllist.length,
                 itemBuilder: (context, index) {
@@ -62,7 +62,9 @@ class CallsTab extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const CallInfoScreen(),
+                            builder: (context) => CallInfoScreen(
+                              index: index,
+                            ),
                           ));
                     },
                     child: ListTile(
