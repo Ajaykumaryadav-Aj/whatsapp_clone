@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:whatsapp/screens/call_link_screen.dart';
 import 'package:whatsapp/utils/database.dart';
-
-
 
 class AddCalls extends StatelessWidget {
   const AddCalls({super.key});
@@ -37,76 +36,101 @@ class AddCalls extends StatelessWidget {
           ),
         ],
       ),
-      body: Column(
-        children: [
-          ListView.builder(
-            shrinkWrap: true,
-            itemCount: 3,
-            itemBuilder: (context, index) {
-              return ListTile(
-                leading: CircleAvatar(
-                  backgroundColor: Colors.teal,
-                  child: Icon(
-                    addcalllist[index]['icon'],
-                    color: Colors.white,
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            ListTile(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const CallLinlScreen(),
+                    ));
+              },
+              leading: const CircleAvatar(
+                backgroundColor: Colors.teal,
+                child: Icon(
+                  Icons.link,
+                  color: Colors.white,
+                ),
+              ),
+              title: const Text(
+                'New call link',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+              ),
+            ),
+            ListView.builder(
+              physics: const NeverScrollableScrollPhysics(),
+              shrinkWrap: true,
+              itemCount: 2,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  leading: CircleAvatar(
+                    backgroundColor: Colors.teal,
+                    child: Icon(
+                      addcalllist[index]['icon'],
+                      color: Colors.white,
+                    ),
                   ),
-                ),
-                title: Text(
-                  addcalllist[index]['new'],
-                  style: const TextStyle(
-                      fontWeight: FontWeight.bold, fontSize: 18),
-                ),
-                trailing: Icon(addcalllist[index]['sideicon']),
-              );
-            },
-          ),
-          ListView.builder(
-            shrinkWrap: true,
-            itemCount: addprsnlist.length,
-            itemBuilder: (context, index) {
-              return ListTile(
-                leading: CircleAvatar(
-                  backgroundImage: AssetImage(addprsnlist[index]['image']),
-                ),
-                title: Text(
-                  addprsnlist[index]['name'],
-                  style: const TextStyle(
-                      fontWeight: FontWeight.bold, fontSize: 18),
-                ),
-                subtitle: Text(addprsnlist[index]['message']),
-                trailing: const Wrap(spacing: 25, children: [
-                  Icon(
-                    Icons.call,
-                    color: Colors.teal,
+                  title: Text(
+                    addcalllist[index]['new'],
+                    style: const TextStyle(
+                        fontWeight: FontWeight.bold, fontSize: 18),
                   ),
-                  Icon(
-                    Icons.videocam,
-                    color: Colors.teal,
+                  trailing: Icon(addcalllist[index]['sideicon']),
+                );
+              },
+            ),
+            ListView.builder(
+              physics: const NeverScrollableScrollPhysics(),
+              shrinkWrap: true,
+              itemCount: addprsnlist.length,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  leading: CircleAvatar(
+                    backgroundImage: AssetImage(addprsnlist[index]['image']),
                   ),
-                ]),
-              );
-            },
-          ),
-          ListView.builder(
-            shrinkWrap: true,
-            itemCount: 2,
-            itemBuilder: (context, index) {
-              return ListTile(
-                leading: CircleAvatar(
-                  child: Icon(
-                    addinvite[index]['icon'],
-                    color: Colors.white,
+                  title: Text(
+                    addprsnlist[index]['name'],
+                    style: const TextStyle(
+                        fontWeight: FontWeight.bold, fontSize: 18),
                   ),
-                ),
-                title: Text(
-                  addinvite[index]['name'],
-                  style: const TextStyle(
-                      fontWeight: FontWeight.bold, fontSize: 18),
-                ),
-              );
-            },
-          )
-        ],
+                  subtitle: Text(addprsnlist[index]['message']),
+                  trailing: const Wrap(spacing: 25, children: [
+                    Icon(
+                      Icons.call,
+                      color: Colors.teal,
+                    ),
+                    Icon(
+                      Icons.videocam,
+                      color: Colors.teal,
+                    ),
+                  ]),
+                );
+              },
+            ),
+            ListView.builder(
+              physics: const NeverScrollableScrollPhysics(),
+              shrinkWrap: true,
+              itemCount: 2,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  leading: CircleAvatar(
+                    child: Icon(
+                      addinvite[index]['icon'],
+                      color: Colors.white,
+                    ),
+                  ),
+                  title: Text(
+                    addinvite[index]['name'],
+                    style: const TextStyle(
+                        fontWeight: FontWeight.bold, fontSize: 18),
+                  ),
+                );
+              },
+            )
+          ],
+        ),
       ),
     );
   }

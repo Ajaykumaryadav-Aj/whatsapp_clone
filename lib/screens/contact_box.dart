@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:whatsapp/screens/new_group_page.dart';
 import 'package:whatsapp/utils/database.dart';
 
-
 class ChatMessagebox extends StatelessWidget {
   const ChatMessagebox({super.key});
 
@@ -40,6 +39,8 @@ class ChatMessagebox extends StatelessWidget {
         ),
         body: SingleChildScrollView(
           child: Column(
+            // mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               ListTile(
                 onTap: () {
@@ -92,8 +93,9 @@ class ChatMessagebox extends StatelessWidget {
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
                 ),
               ),
+             const SizedBox(height: 12),
               const Padding(
-                padding: EdgeInsets.fromLTRB(0, 20, 215, 0),
+                padding: EdgeInsets.only(left: 20),
                 child: Text(
                   'Contacts on WhatsApp',
                   style: TextStyle(fontSize: 16),
@@ -125,12 +127,13 @@ class ChatMessagebox extends StatelessWidget {
                 },
               ),
               const Padding(
-                padding: EdgeInsets.fromLTRB(0, 10, 250, 0),
+                padding: EdgeInsets.only(left: 20),
                 child: Text(
                   'Invite to WhatsApp',
                   style: TextStyle(fontSize: 16),
                 ),
               ),
+              SizedBox(height: 12),
               ListView.builder(
                 itemCount: invitelist.length,
                 shrinkWrap: true,

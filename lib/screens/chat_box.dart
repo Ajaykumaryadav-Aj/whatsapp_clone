@@ -31,60 +31,68 @@ class _ChatBoxState extends State<ChatBox> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: Colors.grey,
       appBar: AppBar(
-        backgroundColor: Colors.teal,
-        leading: const BackButton(
-          color: Colors.white,
-        ),
-        actions: const [
-          Padding(
-            padding: EdgeInsets.all(8.0),
-            child: Icon(
-              Icons.videocam,
-              color: Colors.white,
-            ),
+          backgroundColor: Colors.teal,
+          leading: const BackButton(
+            color: Colors.white,
           ),
-          Padding(
-            padding: EdgeInsets.all(8.0),
-            child: Icon(
-              Icons.call,
-              color: Colors.white,
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.all(8.0),
-            child: Icon(
-              Icons.more_vert,
-              color: Colors.white,
-            ),
-          ),
-        ],
-        title: Padding(
-          padding: const EdgeInsets.only(right: 30),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              CircleAvatar(
-                radius: 23,
-                backgroundImage: AssetImage(chatimage[widget.index]['image']),
+          actions: const [
+            Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Icon(
+                Icons.videocam,
+                color: Colors.white,
               ),
-              // SizedBox(width: 20),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    chatlist[widget.index]['name'],
-                    style: const TextStyle(color: Colors.white),
+            ),
+            Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Icon(
+                Icons.call,
+                color: Colors.white,
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Icon(
+                Icons.more_vert,
+                color: Colors.white,
+              ),
+            ),
+          ],
+          leadingWidth: 20,
+          title: Padding(
+            padding: const EdgeInsets.only(top: 0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(30),
+                  child: Image.asset(
+                    chatimage[widget.index]['image'],
+                    height: 45,
+                    width: 45,
                   ),
-                  
-                ],
-              )
-            ],
-          ),
-        ),
-      ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 10),
+                  child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          chatlist[widget.index]['name'],
+                          style: const TextStyle(color: Colors.white),
+                        ),
+                        Text(
+                          'Online',
+                          style: TextStyle(
+                              fontSize: 14,
+                              color: Colors.white.withOpacity(0.8)),
+                        )
+                      ]),
+                )
+              ],
+            ),
+          )),
       floatingActionButton: Padding(
         padding: const EdgeInsets.only(left: 41),
         child: Stack(
@@ -137,8 +145,6 @@ class _ChatBoxState extends State<ChatBox> {
               },
             ),
           ),
-
-          // const Text(''),
           Align(
             alignment: Alignment.bottomLeft,
             child: TextField(
@@ -149,9 +155,7 @@ class _ChatBoxState extends State<ChatBox> {
                   chating.add({
                     'messages': value,
                   });
-                  setState(() {
-                
-                  });
+                  setState(() {});
                 }
               },
               style: const TextStyle(fontSize: 20),
@@ -182,7 +186,7 @@ class _ChatBoxState extends State<ChatBox> {
                     ),
                   ],
                 ),
-              
+
                 hintText: 'Message',
                 hintStyle: TextStyle(
                   fontSize: 21,
