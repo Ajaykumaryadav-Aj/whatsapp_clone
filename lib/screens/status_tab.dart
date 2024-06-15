@@ -68,11 +68,11 @@ class StatusTab extends StatelessWidget {
                 ),
                 title: Text(
                   'My status',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 21),
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
                 ),
                 subtitle: Text(
                   'Tap to add status update',
-                  style: TextStyle(fontSize: 17),
+                  style: TextStyle(fontSize: 14),
                 ),
               ),
             ),
@@ -81,7 +81,7 @@ class StatusTab extends StatelessWidget {
                   right: MediaQuery.of(context).size.width / 1.65),
               child: const Text(
                 'Recent updates',
-                style: TextStyle(fontSize: 17),
+                style: TextStyle(fontSize: 16),
               ),
             ),
             ListView.builder(
@@ -99,12 +99,12 @@ class StatusTab extends StatelessWidget {
                   title: Text(
                     statuslist[index]['name'],
                     style: const TextStyle(
-                        fontSize: 19, fontWeight: FontWeight.bold),
+                        fontSize: 16, fontWeight: FontWeight.bold),
                   ),
                   subtitle: Text(
                     statuslist[index]['message'],
                     style: const TextStyle(
-                      fontSize: 16,
+                      fontSize: 14,
                     ),
                   ),
                 );

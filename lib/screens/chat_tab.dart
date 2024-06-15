@@ -94,17 +94,17 @@ class ChatTab extends StatelessWidget {
               title: Text(
                 chatlist[index]['name'],
                 style:
-                    const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
               subtitle: Text(
                 chatlist[index]['message'],
-                style: const TextStyle(fontSize: 17),
+                style: const TextStyle(fontSize: 16),
               ),
               trailing: const Padding(
                 padding: EdgeInsets.only(right: 15),
                 child: Text(
                   '6:04 am',
-                  style: TextStyle(fontSize: 14),
+                  style: TextStyle(fontSize: 12),
                 ),
               ),
             ),

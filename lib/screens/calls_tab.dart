@@ -28,6 +28,8 @@ class CallsTab extends StatelessWidget {
         child: Column(
           children: [
             const ListTile(
+              horizontalTitleGap: 8,
+              minVerticalPadding: 20,
               leading: CircleAvatar(
                 backgroundColor: Colors.teal,
                 radius: 35.0,
@@ -38,19 +40,19 @@ class CallsTab extends StatelessWidget {
               ),
               title: Text(
                 'Create call link',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
               ),
               subtitle: Text(
                 'Share a link for your WhatsApp call',
-                style: TextStyle(fontSize: 16),
+                style: TextStyle(fontSize: 14),
               ),
             ),
             Padding(
               padding: EdgeInsets.only(
-                  right: MediaQuery.of(context).size.width / 1.32),
+                  right: MediaQuery.of(context).size.width / 1.34),
               child: const Text(
                 'Recent',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
               ),
             ),
             ListView.builder(
@@ -76,11 +78,11 @@ class CallsTab extends StatelessWidget {
                       title: Text(
                         calllist[index]['name'],
                         style: const TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 18),
+                            fontWeight: FontWeight.bold, fontSize: 16),
                       ),
                       subtitle: Text(
                         calllist[index]['message'],
-                        style: const TextStyle(fontSize: 15),
+                        style: const TextStyle(fontSize: 14),
                       ),
                       trailing: Icon(
                         calllist[index]['icon'],

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp/utils/database.dart';
 
-
-
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
 
@@ -14,6 +12,9 @@ class ProfileScreen extends StatelessWidget {
         title: const Text(
           'Profile',
           style: TextStyle(color: Colors.white),
+        ),
+        leading: const BackButton(
+          color: Colors.white,
         ),
       ),
       body: Column(
