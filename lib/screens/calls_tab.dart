@@ -45,11 +45,12 @@ class CallsTab extends StatelessWidget {
                 style: TextStyle(fontSize: 16),
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.only(right: 300, top: 10),
-              child: Text(
+            Padding(
+              padding: EdgeInsets.only(
+                  right: MediaQuery.of(context).size.width / 1.32),
+              child: const Text(
                 'Recent',
-                style: TextStyle(fontSize: 20),
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
               ),
             ),
             ListView.builder(
