@@ -93,117 +93,115 @@ class _ChatBoxState extends State<ChatBox> {
               ],
             ),
           )),
-      floatingActionButton: Padding(
-        padding: const EdgeInsets.only(left: 41),
-        child: Stack(
-          clipBehavior: Clip.none,
-          children: [
-            send
-                ? FloatingActionButton(
-                    heroTag: true,
-                    onPressed: () {},
-                    backgroundColor: Colors.teal,
-                    shape: const CircleBorder(),
-                    child: const Icon(
-                      Icons.send,
-                      color: Colors.white,
-                      size: 30,
-                    ),
-                  )
-                : FloatingActionButton(
-                    onPressed: () {},
-                    backgroundColor: Colors.teal,
-                    shape: const CircleBorder(),
-                    child: const Icon(
-                      Icons.keyboard_voice,
-                      color: Colors.white,
-                      size: 30,
-                    ),
-                  ),
-          ],
-        ),
-      ),
-      body: Column(
-        children: [
-          Expanded(
-            child: ListView.builder(
-              itemCount: chating[widget.index]['messages'].length,
-              itemBuilder: (BuildContext context, index) {
-                return Padding(
-                  padding: const EdgeInsets.only(left: 300),
+      // floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+      // floatingActionButton: Padding(
+      //   padding: const EdgeInsets.only(left: 40),
+      //   child: Stack(
+      //     clipBehavior: Clip.none,
+      //     children: [
+      //       send
+      //           ? FloatingActionButton(
+      //               heroTag: true,
+      //               onPressed: () {},
+      //               backgroundColor: Colors.teal,
+      //               shape: const CircleBorder(),
+      //               child: const Icon(
+      //                 Icons.send,
+      //                 color: Colors.white,
+      //                 size: 30,
+      //               ),
+      //             )
+      //           : FloatingActionButton(
+      //               onPressed: () {},
+      //               backgroundColor: Colors.teal,
+      //               shape: const CircleBorder(),
+      //               child: const Icon(
+      //                 Icons.keyboard_voice,
+      //                 color: Colors.white,
+      //                 size: 30,
+      //               ),
+      //             ),
+      //     ],
+      //   ),
+      // ),
+      body: Container(
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
+        child: Align(
+          alignment: Alignment.bottomCenter,
+          child: Row(
+            children: [
+              Expanded(
+                child: Container(
+                  width: MediaQuery.of(context).size.width - 10,
                   child: Card(
-                    // elevation: 50,
-                    child: Column(
-                      children: [
-                        Text(chating[widget.index]['messages'][index]
-                            ['message']),
-                        Text(chating[widget.index]['messages'][index]['time']),
-                      ],
-                    ),
-                  ),
-                );
-              },
-            ),
-          ),
-          Align(
-            alignment: Alignment.bottomLeft,
-            child: TextField(
-              textInputAction: TextInputAction.done,
-              controller: textcontroller,
-              onSubmitted: (value) {
-                if (textcontroller.text.isNotEmpty) {
-                  chating.add({
-                    'messages': value,
-                  });
-                  setState(() {});
-                }
-              },
-              style: const TextStyle(fontSize: 20),
-              keyboardType: TextInputType.multiline,
-              cursorColor: Colors.teal,
-              cursorWidth: 3,
-              decoration: const InputDecoration(
-                fillColor: Colors.white,
-                filled: true,
-                prefixIcon: Icon(Icons.tag_faces, size: 34),
-                //
-                suffixIcon: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Icon(Icons.link, size: 28),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Icon(
-                        Icons.currency_rupee,
+                    margin: const EdgeInsets.only(right: 5, left: 2, bottom: 8),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25)),
+                    child: TextFormField(
+                      textAlignVertical: TextAlignVertical.center,
+                      controller: textcontroller,
+                      textInputAction: TextInputAction.done,
+                      keyboardType: TextInputType.multiline,
+                      decoration: const InputDecoration(
+                        border: InputBorder.none,
+                        contentPadding: EdgeInsets.all(5),
+                        hintText: 'Message',
+                        prefixIcon: Icon(Icons.emoji_emotions),
+                        suffixIcon: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.all(14.0),
+                              child: Icon(Icons.link, size: 28),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.all(14.0),
+                              child: Icon(
+                                Icons.currency_rupee,
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.all(14.0),
+                              child: Icon(Icons.photo_camera),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                    Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Icon(Icons.photo_camera),
-                    ),
-                  ],
+                  ),
                 ),
-
-                hintText: 'Message',
-                hintStyle: TextStyle(
-                  fontSize: 21,
-                ),
-                border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(40),
-                    ),
-                    borderSide: BorderSide.none),
-                constraints: BoxConstraints(maxHeight: 350, maxWidth: 340),
               ),
-              onTap: () {
-                log('message');
-              },
-            ),
+              Stack(
+                clipBehavior: Clip.none,
+                children: [
+                  send
+                      ? FloatingActionButton(
+                          heroTag: true,
+                          onPressed: () {},
+                          backgroundColor: Colors.teal,
+                          shape: const CircleBorder(),
+                          child: const Icon(
+                            Icons.send,
+                            color: Colors.white,
+                            size: 30,
+                          ),
+                        )
+                      : FloatingActionButton(
+                          onPressed: () {},
+                          backgroundColor: Colors.teal,
+                          shape: const CircleBorder(),
+                          child: const Icon(
+                            Icons.keyboard_voice,
+                            color: Colors.white,
+                            size: 30,
+                          ),
+                        ),
+                ],
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }
