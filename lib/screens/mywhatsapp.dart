@@ -35,7 +35,7 @@ class MyWhatsapp extends StatelessWidget {
             ),
             // Icon(Icons.abc_outlined),
             PopupMenuButton(
-              color: Colors.white,
+              iconColor: Colors.white,
               itemBuilder: (context) => [
                 const PopupMenuItem(
                   child: Text('search'),
@@ -49,8 +49,11 @@ class MyWhatsapp extends StatelessWidget {
                 const PopupMenuItem(
                   child: Text('Starred message'),
                 ),
-                 PopupMenuItem(
-                   onTap: () async {
+                const PopupMenuItem(
+                  child: Text('Payments'),
+                ),
+                PopupMenuItem(
+                  onTap: () async {
                     await Navigator.push(
                       navigatorkey.currentContext!,
                       MaterialPageRoute(
@@ -60,11 +63,7 @@ class MyWhatsapp extends StatelessWidget {
                       ),
                     );
                   },
-                  child: const Text('Payments'),
-                ),
-                const PopupMenuItem(
-                  child: Text('Settings'),
-                 
+                  child: const Text('Settings'),
                 ),
               ],
             )

@@ -124,9 +124,17 @@ class _CallInfoScreenState extends State<CallInfoScreen> {
                 Text('1:35 pm')
               ],
             ),
-            trailing: Text(
-              '12:55',
-              style: TextStyle(fontSize: 14, color: Colors.grey),
+            trailing: Column(
+              children: [
+                Text(
+                  '12:55',
+                  style: TextStyle(fontSize: 14, color: Colors.grey),
+                ),
+                Text(
+                  '3.2 MB',
+                  style: TextStyle(fontSize: 14, color: Colors.grey),
+                ),
+              ],
             ),
           )
         ],

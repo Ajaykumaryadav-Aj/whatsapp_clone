@@ -46,7 +46,7 @@ class CallsTab extends StatelessWidget {
               ),
             ),
             const Padding(
-              padding: EdgeInsets.fromLTRB(0, 14, 300, 0),
+              padding: EdgeInsets.only(right: 300, top: 10),
               child: Text(
                 'Recent',
                 style: TextStyle(fontSize: 20),

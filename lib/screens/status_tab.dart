@@ -77,7 +77,7 @@ class StatusTab extends StatelessWidget {
               ),
             ),
             const Padding(
-              padding: EdgeInsets.fromLTRB(0, 15, 247, 0),
+              padding: EdgeInsets.only(right: 230),
               child: Text(
                 'Recent updates',
                 style: TextStyle(fontSize: 17),

@@ -10,10 +10,13 @@ class CallLinlScreen extends StatelessWidget {
         title: const Text('Create call link'),
         backgroundColor: Colors.teal,
       ),
-      body: Column(
+      body: const Column(
         children: [
           Text(
-              'Anyone with WhatsApp can use this link to join this call .only share it with people you trust'),
+            'Anyone with WhatsApp can use this link to join this call .only share it with people you trust',
+            textAlign: TextAlign.left,
+            style: TextStyle(),
+          ),
         ],
       ),
     );

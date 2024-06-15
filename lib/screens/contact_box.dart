@@ -93,6 +93,7 @@ class ChatMessagebox extends StatelessWidget {
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
                 ),
               ),
+             const SizedBox(height: 12),
               const Padding(
                 padding: EdgeInsets.only(left: 20),
                 child: Text(
@@ -132,6 +133,7 @@ class ChatMessagebox extends StatelessWidget {
                   style: TextStyle(fontSize: 16),
                 ),
               ),
+              SizedBox(height: 12),
               ListView.builder(
                 itemCount: invitelist.length,
                 shrinkWrap: true,
